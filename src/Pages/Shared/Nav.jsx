@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import icon from "../../assets/icons/warning.png";
 import logo from "../../assets/react.png";
-import { BiHome } from "react-icons/bi";
 import ActiveLink from "./ActiveLink";
 import {
   AiOutlineLogin,
@@ -20,7 +19,7 @@ const Nav = () => {
   // Button Loading state::>
   const [buttonLoading, setbuttonLoading] = useState(false);
   // Auth Related ::>
-  const { user, loading, createNew, googleLogin, LogOut } = useAuth();
+  const { user, LogOut } = useAuth();
   // console.log(user);
   const handleLogOut = () => {
     setbuttonLoading(true);
@@ -62,8 +61,13 @@ const Nav = () => {
   // Scroll to add effect on Navbar::>
   const [navBar, setNavbar] = useState(false);
   const changeBackground = () => {
-    // console.log(window.scrollY);
-    if (window.scrollY >= 66) {
+    console.log(window.scrollY);
+    if (window.scrollY >= 66 && window.screen.width <= 1024) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+    if (window.scrollY >= 310 && window.screen.width > 1024) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -110,12 +114,12 @@ const Nav = () => {
     </>
   );
   return (
-    <div className="font-VarelaRound z-20    top-0 fixed   flex justify-center w-full xl:w-[1080px]">
+    <div className="font-VarelaRound z-20    top-0 fixed   flex justify-center w-full ">
       <div
         className={`${
           navBar === true
             ? "lg:bg-[#07332F] lg:w-[600px] lg:border-black border rounded-3xl  lg:transform lg:duration-700"
-            : "bg-transparent lg:delay-200 lg:transform lg:duration-700 lg:w-[900px]"
+            : "bg-transparent lg:delay-200 lg:transform lg:duration-700 xl:w-[1280px] lg:w-[900px]"
         }  lg:my-3  text-white border-none  mx-auto navbar`}
       >
         <div

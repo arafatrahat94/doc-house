@@ -8,8 +8,9 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-import app from "../Firebase/Firebase.config";
+
 import axios from "axios";
+import app from "../../Firebase/Firebase.config";
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {

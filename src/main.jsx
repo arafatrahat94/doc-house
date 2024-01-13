@@ -9,7 +9,7 @@ import AuthProvider from "./Pages/Provider/AuthProvider";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
-      <div className=" lg:max-w-[1080px] min-w-[370px]  mx-auto">
+      <div className="  min-w-[370px]  mx-auto">
         <AuthProvider>
           <RouterProvider router={router}></RouterProvider>
         </AuthProvider>
