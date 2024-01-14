@@ -51,11 +51,14 @@ const Banner = () => {
                 Some institutions stand out for their excellence, setting a high
                 standard for compassionate care in the healthcare landscape.
               </p>
-              <div className="flex lg:justify-start justify-center">
+              <a
+                href="#doctors"
+                className="flex lg:justify-start justify-center"
+              >
                 <button className="btn bg-[#F7A582] rounded-lg  py-3 normal-case font-SourceSans  px-8 text-white lg:px-6 h-14 xl:mt-10 xl:px-10 xl:h-16 xl:text-xl  border-none  btn-primary mt-6 lg:mt-4">
-                  All Services
+                  Take appointment
                 </button>
-              </div>
+              </a>
             </div>
             <div className="mt relative top-72 lg:top-20 xl:top-28">
               <img

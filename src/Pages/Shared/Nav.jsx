@@ -90,7 +90,7 @@ const Nav = () => {
       </ActiveLink>
       {user ? (
         <>
-          <Link className="" onClick={handleLogOut}>
+          <div className="" onClick={handleLogOut}>
             {buttonLoading === true ? (
               <>
                 <span className="w-4 ps-5 loading  loading-spinner"></span>
@@ -98,7 +98,7 @@ const Nav = () => {
             ) : (
               <div className="flex items-center gap-x-3">Sign Out</div>
             )}
-          </Link>
+          </div>
         </>
       ) : (
         <>

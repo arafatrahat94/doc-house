@@ -5,15 +5,14 @@ const Footer = () => {
     <div className="lgpx-20 px-14 bg-[#F3F3F3]">
       <footer className="footer py-14  text-base-content">
         <aside className="flex flex-col justify-center w-full">
-          <div className="flex w-full lg:w-4/5 justify-center items-center gap-3">
+          <div className="flex w-full lg:w-4/5 lg:justify-start justify-center items-center gap-3">
             <img src={img} alt="" />
             <h1 className="text-2xl font-VarelaRound text-[#F7A582] font-extrabold">
               Doc <span className="text-green-950">House</span>
             </h1>
           </div>
           <p className="lg:w-[250px] text-center w-full lg:text-left mt-3 text-gray-700">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. has been since the printer took.
+            Choosing the best medical help center is crucial for well-being.
           </p>
           <button className="btn mx-auto lg:mx-0 w-1/2 mt-3 border-[#F7A582] rounded-md bg-white text-[#F7A582] normal-case font-VarelaRound">
             Appointment

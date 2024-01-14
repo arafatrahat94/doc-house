@@ -2,14 +2,14 @@ import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Lottie from "lottie-react";
-import animation from "../assets/animation/HuzGRytvUn.json";
+import animation from "../assets/animation/jHAs62BXXQ.json";
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useAuth();
   if (loading) {
     return (
       <>
-        <div className="modal-box absolute backdrop-blur items-center flex h-[516px]  bg-opacity-0 p-2 rounded-xl">
+        <div className="min-h-screen w-full flex justify-center items-center">
           <Lottie
             mode="bounce"
             controls

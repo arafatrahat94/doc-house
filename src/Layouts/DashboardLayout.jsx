@@ -12,6 +12,7 @@ import logo from "../assets/react.png";
 import Swal from "sweetalert2";
 import "../Pages/Shared/Nav.css";
 import UseToast from "../hooks/useToast";
+import Footer from "../Pages/Shared/Footer";
 
 const DashboardLayout = () => {
   // Scroll to add effect on Navbar::>
@@ -142,31 +143,31 @@ const DashboardLayout = () => {
           </div>
           <Outlet />
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side ">
           <label
             htmlFor="my-drawer-2"
             aria-label="close sidebar"
-            className="drawer-overlay"
+            className="drawer-overlay min-h-screen"
           ></label>
-          <ul className=" w-64 border lg:border-none border-[#07332F] bg-base-200 text-base-content">
+          <ul className="mt-5 lg:mt-0 w-64 border lg:border-none border-[#07332F] bg-base-200 text-base-content">
             {/* Sidebar content here */}
-            <div className="flex  p-3  bg-[#07332F] w-full items-center gap-x-2 text-white">
+            <div className="lg:py-5 flex  p-3  bg-[#07332F] w-full items-center gap-x-2 text-white">
               <img className="w-10" src={logo} alt="" />
               <h1 className="text-xl text-[#F7A582] font-VarelaRound">
                 Doc <span className="text-white">House</span>
               </h1>
             </div>
-            <div className="flex pb-6 flex-col justify-between h-[91vh] ">
+            <div className="flex pb-6 flex-col justify-between min-h-[82vh] lg:min-h-[90vh]">
               <div className="flex font-VarelaRound font-bold ms-2 flex-col bg-gradient-to-r from-[#07332F]  to-gray-900 bg-clip-text text-transparent  ps-2 gap-y-4 mt-4">
                 {isAdmin === true ? (
                   <>
                     {" "}
                     <Link
-                      to="/DashBoard/DashBoards"
+                      to="/DashBoard/Appointments"
                       className="flex items-center gap-x-2"
                     >
-                      <a>DashBoard</a>{" "}
-                      <ActiveLink2 to="/DashBoard/DashBoards">
+                      <a>Appointments</a>{" "}
+                      <ActiveLink2 to="/DashBoard/Appointments">
                         <BsFillCaretLeftFill className="text-[#07332F]" />
                       </ActiveLink2>
                     </Link>
@@ -226,7 +227,7 @@ const DashboardLayout = () => {
                 )}
               </div>
 
-              <div className="mb-3 custScreen:mb-5 flex flex-col justify-center items-center gap-y-2">
+              <div className="mb-3 custScreen:mb-5 flex flex-col justify-center items-center gap-y-2 ">
                 {user ? (
                   <>
                     {" "}
@@ -265,6 +266,7 @@ const DashboardLayout = () => {
           </ul>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

@@ -51,7 +51,7 @@ const Home = () => {
       </div> */}
       <ScrolltoTop></ScrolltoTop>
       <DoctorAndteeth></DoctorAndteeth>
-      <div className="my-[100px]">
+      <div className="my-[100px] mx-5">
         <div className="gap-x-2 lg:w-[950px] lg:mx-auto lg:flex  justify-center ">
           <div className=" flex items-center justify-center bg-[#07332F] my-2 rounded-xl p-4 lg:w-[300px] gap-x-2 h-[150px] lg:h-[180px]">
             <div className="ms-3">

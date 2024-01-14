@@ -12,7 +12,7 @@ const AllUsers = () => {
 
   useEffect(() => {
     // Fetch data when the component mounts
-    fetch("http://localhost:5000/usersAll", {
+    fetch("https://doc-house-server-lac.vercel.app/usersAll", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("DOC-ACCESS")}`,
       },
@@ -26,7 +26,7 @@ const AllUsers = () => {
   const handleAdmin = (userId) => {
     console.log(userId);
     // Fetch data when the component mounts
-    fetch(`http://localhost:5000/users/admin/${userId}`, {
+    fetch(`https://doc-house-server-lac.vercel.app/users/admin/${userId}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("DOC-ACCESS")}`,

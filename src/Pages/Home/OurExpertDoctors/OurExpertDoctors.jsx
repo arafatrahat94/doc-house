@@ -56,10 +56,10 @@ const OurExpertDoctors = () => {
           Our Expert Doctors
         </h1>
         <p className="text-center text-sm lg:text-base w-[340px] lg:w-[750px] mx-auto mt-5 mb-12">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inve ntore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
+          our commitment to providing top-tier dental care is exemplified by our
+          team of highly skilled and experienced dental professionals. Our
+          expert doctors bring a wealth of knowledge, precision, and compassion
+          to every patient interaction.
         </p>
       </div>
       <div>

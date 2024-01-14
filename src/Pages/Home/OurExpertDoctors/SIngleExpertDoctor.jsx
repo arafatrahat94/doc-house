@@ -50,7 +50,7 @@ const SIngleExpertDoctor = () => {
                   />
                   ({data.rating})
                 </div>
-                <div className="my-3 grid grid-cols-3 lg:grid-cols-4 gap-2">
+                <div className="max-w-[400px] my-3 grid grid-cols-3 lg:grid-cols-4 gap-2">
                   <div
                     onClick={() => setImage(data.image_url)}
                     className="w-[90px]  rounded-lg h-[90px] "
@@ -121,116 +121,108 @@ const SIngleExpertDoctor = () => {
 
       {/* tab section */}
       <div className="lg:w-11/12 mx-2 lg:mx-auto">
-        <Tabs>
-          <TabList className="flex justify-center  items-center">
-            <Tab>Over View</Tab>
-            <Tab>Location</Tab>
-          </TabList>
-
-          <TabPanel className="mx-3 my-10">
-            <div className=" mt-6">
-              <h1 className="mb-3 text-2xl font-bold text-[#07332F]">
-                About Me :
+        <h1 className="text-2xl text-center font-semibold text-[#07332F] mt-5">
+          Over View
+        </h1>
+        <div className="mx-5 mb-10">
+          <div className=" mt-6">
+            <h1 className="mb-3 text-2xl font-bold text-[#07332F]">
+              About Me :
+            </h1>
+            <h1>{data.about_me}</h1>
+          </div>
+          <div className="grid lg:grid-cols-2">
+            <div>
+              <h1 className="text-2xl font-bold text-[#07332F] mt-5">
+                Education :
               </h1>
-              <h1>{data.about_me}</h1>
-            </div>
-            <div className="grid lg:grid-cols-2">
               <div>
-                <h1 className="text-2xl font-bold text-[#07332F] mt-5">
-                  Education :
+                {data.education.map((x) => (
+                  <>
+                    <div className="my-1 flex ms-2  mt-1">
+                      <li></li>
+                      <div>
+                        <h1 className=" my-1  font-bold text-[#07332F]">
+                          {x.university}
+                        </h1>
+                        <h1 className=" ">
+                          <span className="font-bold">Degree:</span> {x.degree}
+                        </h1>
+                        <h1>
+                          <span className="font-bold">Passed :</span>{" "}
+                          {x.passing_year}
+                        </h1>
+                      </div>
+                    </div>
+                  </>
+                ))}
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-[#07332F] mt-5">
+                  Work Experience:
                 </h1>
-                <div>
-                  {data.education.map((x) => (
-                    <>
-                      <div className="my-1 flex ms-2  mt-1">
-                        <li></li>
-                        <div>
-                          <h1 className=" my-1  font-bold text-[#07332F]">
-                            {x.university}
-                          </h1>
-                          <h1 className=" ">
-                            <span className="font-bold">Degree:</span>{" "}
-                            {x.degree}
-                          </h1>
-                          <h1>
-                            <span className="font-bold">Passed :</span>{" "}
-                            {x.passing_year}
-                          </h1>
-                        </div>
-                      </div>
-                    </>
-                  ))}
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-[#07332F] mt-5">
-                    Work Experience:
-                  </h1>
-                  <h1 className="ms-6">{data.work_experience}</h1>
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-[#07332F] mt-5">
-                    specializations :
-                  </h1>
-                  {data.specializations.map((x) => (
-                    <>
-                      <div className="my-1 flex ms-2  mt-1">
-                        <li>{x}</li>
-                      </div>
-                    </>
-                  ))}
-                </div>
+                <h1 className="ms-6">{data.work_experience}</h1>
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-[#07332F] mt-5">
-                  Awards :
+                  specializations :
                 </h1>
-                <div>
-                  {data.awards.map((x) => (
-                    <>
-                      <div className="my-1 flex ms-2  mt-1">
-                        <li></li>
-                        <div>
-                          <h1 className=" my-1  font-bold text-[#07332F]">
-                            {x.name}
-                          </h1>
-                          <h1 className=" ">
-                            <span className="font-bold">Year:</span> {x.year}
-                          </h1>
-                          <h1>
-                            <span className="font-bold">Description :</span>{" "}
-                            {x.description}
-                          </h1>
-                        </div>
+                {data.specializations.map((x) => (
+                  <>
+                    <div className="my-1 flex ms-2  mt-1">
+                      <li>{x}</li>
+                    </div>
+                  </>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold text-[#07332F] mt-5">
+                Awards :
+              </h1>
+              <div>
+                {data.awards.map((x) => (
+                  <>
+                    <div className="my-1 flex ms-2  mt-1">
+                      <li></li>
+                      <div>
+                        <h1 className=" my-1  font-bold text-[#07332F]">
+                          {x.name}
+                        </h1>
+                        <h1 className=" ">
+                          <span className="font-bold">Year:</span> {x.year}
+                        </h1>
+                        <h1>
+                          <span className="font-bold">Description :</span>{" "}
+                          {x.description}
+                        </h1>
                       </div>
-                    </>
-                  ))}
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-[#07332F] mt-5">
-                    Services :
-                  </h1>
-                  {data.services.map((x) => (
-                    <>
-                      <div className="my-1 flex ms-2  mt-1">
-                        <li>{x}</li>
-                      </div>
-                    </>
-                  ))}
-                </div>
+                    </div>
+                  </>
+                ))}
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-[#07332F] mt-5">
+                  Services :
+                </h1>
+                {data.services.map((x) => (
+                  <>
+                    <div className="my-1 flex ms-2  mt-1">
+                      <li>{x}</li>
+                    </div>
+                  </>
+                ))}
+              </div>
 
-                <Link
-                  to={`/Appoinment/${data._id}`}
-                  className="btn rounded-md mt-4 bg-[#F7A582] text-white"
-                >
-                  Take Appoinment
-                </Link>
-              </div>
+              <Link
+                to={`/Appoinment/${data._id}`}
+                className="btn rounded-md mt-4 bg-[#F7A582] text-white"
+              >
+                Take Appoinment
+              </Link>
             </div>
-          </TabPanel>
-          <TabPanel>
-            <h2>COMING SOON</h2>
-          </TabPanel>
-        </Tabs>
+          </div>
+        </div>
       </div>
     </div>
   );

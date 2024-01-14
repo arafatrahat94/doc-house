@@ -30,10 +30,9 @@ const WhatOutPatientSay = () => {
         What Our Patients Says
       </h1>
       <p className="text-center text-sm lg:text-base w-[350px] lg:w-[750px] mx-auto mt-5 mb-12">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inve ntore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo.
+        the heart of our success lies in the smiles of our satisfied patients.
+        Here &apos; s what some of them have to say about their experiences with
+        our dental care.
       </p>
       {navigation.state === "loading" ? (
         <span className="loading loading-ring loading-lg"></span>
@@ -72,7 +71,7 @@ const WhatOutPatientSay = () => {
                           <h1 className="text-xl font-VarelaRound text-black font-bold">
                             {x.name}
                           </h1>
-                          <h1 className=" text-[#6C6B6B] font-VarelaRound font-bold">
+                          <h1 className="h-full flex items-center text-[#6C6B6B] font-VarelaRound font-bold">
                             {x.profession}
                           </h1>
                         </div>
@@ -81,11 +80,8 @@ const WhatOutPatientSay = () => {
                         <PiQuotesDuotone />
                       </h1>
                     </div>
-                    <p className="text-[#6C6B6B] font-VarelaRound text-center lg:text-left lg:w-[400px] mx-3 lg:mx-auto">
-                      Lorem Ipsum has been the industry’s standard dummy text
-                      ever since the 1500s, when an unknow printer tool a galley
-                      of type and scrambled it to make type specimen book has
-                      survived not only five centurines.
+                    <p className="text-[#6C6B6B] mt-5 font-VarelaRound text-center lg:text-left lg:w-[400px] mx-3 lg:mx-auto">
+                      {x?.description}
                     </p>
                   </div>
                 </SwiperSlide>

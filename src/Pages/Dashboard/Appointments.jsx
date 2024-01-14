@@ -21,12 +21,12 @@ const Appointments = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("hi");
-        setAppointData(data);
+        setAppointData(data.reverse());
       });
   }, [user]);
 
   return (
-    <div>
+    <div className="min-h-screen">
       <ScrolltoTop></ScrolltoTop>
       <Helmet>
         <title>My Appointment | Doc House</title>
@@ -35,17 +35,17 @@ const Appointments = () => {
         My Appointments
       </h1>
 
-      <div>
-        <div className="overflow-x-auto mx-5 mt-6">
+      <div className="w-[374px] md:w-full overflow-scroll">
+        <div className="hidden overflow-x-auto w-[95%] mx-auto mt-6 xl:block">
           <table className="table -z-20">
             {/* head */}
             <thead>
               <tr className="bg-[#07332F] text-white">
-                <th className="">#</th>
-                <th>Name</th>
-                <th>Service</th>
-                <th>Time</th>
-                <th>Date</th>
+                <th className="text-center">#</th>
+                <th className="text-center">Name</th>
+                <th className="text-center">Service</th>
+                <th className="text-center">Time</th>
+                <th className="text-center">Date</th>
               </tr>
             </thead>
             <tbody>
@@ -54,15 +54,64 @@ const Appointments = () => {
                 appointData?.map((x, i) => (
                   <>
                     <tr>
-                      <th>{i + 1}</th>
-                      <td>{x.patientName.slice(0, 19)}</td>
-                      <td>{x.service}</td>
-                      <td>{x.time}</td>
-                      <td>{x.date}</td>
+                      <th className="text-center">{i + 1}</th>
+                      <td className="text-center">
+                        {x.patientName.slice(0, 19)}
+                      </td>
+                      <td className="text-center">{x.service}</td>
+                      <td className="text-center">{x.time}</td>
+                      <td className="text-center">{x.date}</td>
                     </tr>
                   </>
                 ))}
             </tbody>
+          </table>
+        </div>
+        <div className="overflow-scroll w-[95%] mx-auto mt-6 xl:hidden">
+          <table className="table -z-20">
+            {/* head */}
+            <div className="flex  bg-[#07332F] text-white">
+              <th className="w-[49px] border-e flex items-center justify-center">
+                #
+              </th>
+              <div className="w-[159px] border-e flex items-center justify-center">
+                Name
+              </div>
+              <div className="w-[159px] border-e flex items-center justify-center">
+                Service
+              </div>
+              <div className="w-[159px] border-e flex items-center justify-center">
+                Time
+              </div>
+              <div className="w-[199px] flex items-center justify-center">
+                Date
+              </div>
+            </div>
+
+            <div>
+              {appointData.length > 0 &&
+                appointData?.map((x, i) => (
+                  <>
+                    <div className="flex gap-y-2">
+                      <div className="my-3 w-[49px] border-e flex items-center justify-center">
+                        {i + 1}
+                      </div>
+                      <div className="w-[159px] border-e flex items-center justify-center">
+                        {x.patientName.slice(0, 19)}
+                      </div>
+                      <div className="w-[159px] border-e flex items-center justify-center">
+                        {x.service}
+                      </div>
+                      <div className="w-[159px] border-e flex items-center justify-center">
+                        {x.time.split(":00").join("")}
+                      </div>
+                      <div className="w-[199px] flex items-center justify-center">
+                        {x.date}
+                      </div>
+                    </div>
+                  </>
+                ))}
+            </div>
           </table>
         </div>
       </div>

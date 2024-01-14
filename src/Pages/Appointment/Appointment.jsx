@@ -7,10 +7,10 @@ import appontmentImg from "../../assets/other/appointment.svg";
 import Calendar from "./Calender";
 import dayjs from "dayjs";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
-import animation from "../../assets/animation/HuzGRytvUn.json";
+import animation from "../../assets/animation/jHAs62BXXQ.json";
 import Lottie from "lottie-react";
 import animation2 from "../../assets/animation/i14fQ7QtWF.json";
 import UseToast from "../../hooks/useToast";
@@ -20,6 +20,7 @@ const Appointment = () => {
   const dcData = useLoaderData();
   const { image_url, location, name } = dcData;
   const [singleArray, setSingleArray] = useState([]);
+  const location2 = useLocation();
   // hook form function
   const {
     register,
@@ -46,11 +47,15 @@ const Appointment = () => {
       doctorName: name,
     };
     axios
-      .post("http://localhost:5000/userAppointment", newdata, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("DOC-ACCESS")}`,
-        },
-      })
+      .post(
+        "https://doc-house-server-lac.vercel.app/userAppointment",
+        newdata,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("DOC-ACCESS")}`,
+          },
+        }
+      )
       .then((res) => {
         if (res.data.acknowledged === true) {
           setLoading(false);
@@ -82,9 +87,10 @@ const Appointment = () => {
       .then((res) => res.json())
       .then((data) => {
         setAppointData(data);
+        setSingleArray(data[0]);
       });
   }, []);
-
+  console.log(appointData[0]);
   const currentDate = dayjs();
   const [selectDate, setSelectDate] = useState(currentDate);
 
@@ -232,7 +238,7 @@ const Appointment = () => {
                                     required
                                     {...register("patientName")}
                                     placeholder="patient full name"
-                                    defaultValue={auth.user.userName}
+                                    defaultValue={auth?.user?.userName}
                                     className="input rounded-lg input-bordered  text-[#07332F] w-full bg-[#FFF]"
                                   />
                                 </div>
@@ -251,15 +257,27 @@ const Appointment = () => {
                                     {...register("email")}
                                     placeholder="email"
                                     required
-                                    defaultValue={auth.user.userMail}
+                                    defaultValue={auth?.user?.userMail}
                                     className="input rounded-lg input-bordered  text-[#07332F] w-full bg-[#FFF]"
                                   />
                                 </div>
-                                <div>
+                                {!auth.user ? (
+                                  <>
+                                    <Link
+                                      state={{ from: location2 }}
+                                      to={!auth?.user && "/Login"}
+                                      className=""
+                                    >
+                                      <button className="rounded-lg bg-[#07332F] text-white btn w-full">
+                                        Submit
+                                      </button>
+                                    </Link>
+                                  </>
+                                ) : (
                                   <button className="rounded-lg bg-[#07332F] text-white btn w-full">
                                     Submit
                                   </button>
-                                </div>
+                                )}
                               </form>
                             </div>
                           </div>
@@ -267,7 +285,7 @@ const Appointment = () => {
                         {loading === true ? (
                           <>
                             {" "}
-                            <div className="modal-box absolute backdrop-blur items-center flex h-[516px]  bg-opacity-0 p-2 rounded-xl">
+                            <div className="modal-box absolute backdrop-blur bg-white items-center flex h-[516px]  bg-opacity-0 p-2 rounded-xl">
                               <Lottie
                                 mode="bounce"
                                 controls

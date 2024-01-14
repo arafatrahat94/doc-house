@@ -9,11 +9,14 @@ const useAdmin = () => {
   const [isAdmin, setIsAdmin] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/admin/${user?.userMail}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://doc-house-server-lac.vercel.app/users/admin/${user?.userMail}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         setIsAdmin(data);
