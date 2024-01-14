@@ -6,13 +6,13 @@ import { BsEye, BsEyeSlash, BsGoogle } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import UseToast from "../../hooks/useToast";
 import { Helmet } from "react-helmet-async";
 import ScrolltoTop from "../Shared/ScrolltoTop";
 const Login = () => {
   // window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  const { loginwithpass, googleLogin } = useAuth();
+  const { loginwithpass, googleLogin, forgotPass } = useAuth();
   const Toast = UseToast();
 
   const [buttonLoading, setbuttonLoading] = useState(false);
@@ -83,6 +83,31 @@ const Login = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   const [showPass, setShowpass] = useState(false);
+
+  const HandleResetPass = () => {
+    if (document.getElementById("email").value === "") {
+      return Toast.fire({
+        icon: "error",
+        position: "top",
+        title: "enter your email please",
+      });
+    }
+    forgotPass(document.getElementById("email").value)
+      .then(() => {
+        Toast.fire({
+          icon: "success",
+          position: "top",
+          title: "Password reset link emailed",
+        });
+      })
+      .catch((err) => {
+        Toast.fire({
+          icon: "error",
+          position: "top",
+          title: err.message,
+        });
+      });
+  };
   return (
     <div>
       <Helmet>
@@ -90,10 +115,10 @@ const Login = () => {
       </Helmet>
       {/* scroll to top buttno */}
       <ScrolltoTop></ScrolltoTop>
-      <div className="hero  lg:min-h-screen ">
-        <div className=" w-full hero-content  p-0 gap-0 grid lg:grid-cols-2">
-          <div className="bg-[#07332F] lg:h-[900px] flex items-center">
-            <div className="w-full flex justify-center  mb-10">
+      <div className="flex w-full justify-center  lg:min-h-screen items-center">
+        <div className="bg-black w-full   p-0 gap-0 grid lg:grid-cols-2">
+          <div className="min-h-screen bg-[#07332F]  xl:rounded-md w-full flex items-center">
+            <div className="w-full lg:flex justify-center  mb-10 hidden ">
               <img className="lg:hidden" src={animationsm} alt="" />
               <img
                 className="w-9/12 mx-auto  lg:block hidden"
@@ -103,7 +128,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="flex flex-shrink-0 w-full   bg-base-100">
+          <div className="flex flex-shrink-0 w-full items-center  bg-base-100">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="lg:w-[420px] mx-[10px] p-[30px] lg:mx-auto border-none"
@@ -120,6 +145,7 @@ const Login = () => {
                 </label>
                 <input
                   type="email"
+                  id="email"
                   {...register("email")}
                   placeholder="Enter your email address"
                   className="input rounded-lg bg-[#F3F3F3] h-[65px]"
@@ -131,11 +157,8 @@ const Login = () => {
                   <span className="text-xl  text-[#07332F] font-VarelaRound font-bold">
                     Password
                   </span>
-                  <div className="text-sm text-[#F7A582] focus:link">
-                    Forgot Password
-                  </div>
                 </label>
-                <div>
+                <div className="relative">
                   <input
                     type={`${showPass === true ? "text" : "password"}`}
                     {...register("password")}
@@ -146,7 +169,7 @@ const Login = () => {
                   <button
                     onClick={() => setShowpass(!showPass)}
                     type="button"
-                    className="absolute   px-4 py-5 rounded-lg lg:right-[78px] right-10 lg:top-[402px] top-[862px]"
+                    className="absolute   px-4 py-5 rounded-lg lg:right-[8px] right-1 top-[3px] lg:top-[2px] "
                   >
                     {showPass === false ? (
                       <BsEyeSlash className="text-xl text-[#07332F] font-bold" />
@@ -155,6 +178,14 @@ const Login = () => {
                     )}
                   </button>
                 </div>
+                <label className="label px-2 flex justify-end">
+                  <div
+                    onClick={HandleResetPass}
+                    className="text-sm text-[#F7A582] focus:link"
+                  >
+                    Forgot Password
+                  </div>
+                </label>
               </div>
               <div className="form-control mt-6">
                 {buttonLoading === true ? (
@@ -208,7 +239,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      ;
     </div>
   );
 };

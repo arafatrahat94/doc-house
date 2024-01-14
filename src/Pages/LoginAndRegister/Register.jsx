@@ -112,9 +112,9 @@ const Register = () => {
         <title>Register | Doc-House</title>
       </Helmet>
       <ScrolltoTop></ScrolltoTop>
-      <div className="hero  lg:min-h-screen ">
-        <div className=" w-full hero-content  p-0 gap-0 grid lg:grid-cols-2">
-          <div className="bg-[#07332F] lg:h-[900px] flex items-center">
+      <div className="  lg:min-h-screen ">
+        <div className=" w-full   p-0 gap-0 grid lg:grid-cols-2">
+          <div className="hidden bg-[#07332F] lg:h-[900px] lg:flex items-center">
             <div className="w-full flex justify-center  mb-10">
               <img className="lg:hidden" src={animationsm} alt="" />
               <img
@@ -167,7 +167,7 @@ const Register = () => {
                     Password
                   </span>
                 </label>
-                <div>
+                <div className="relative">
                   <input
                     type={`${showPass === true ? "text" : "password"}`}
                     {...register("password")}
@@ -178,7 +178,7 @@ const Register = () => {
                   <button
                     onClick={() => setShowpass(!showPass)}
                     type="button"
-                    className="absolute   px-4 py-5 rounded-lg lg:right-[78px] right-10 lg:top-[457px] top-[972px]"
+                    className="absolute   px-4 py-5 rounded-lg lg:right-[10px] right-1 lg:top-[2px] top-[3px]"
                   >
                     {showPass === false ? (
                       <BsEyeSlash className="text-xl text-[#07332F] font-bold" />
@@ -241,7 +241,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      ;
     </div>
   );
 };

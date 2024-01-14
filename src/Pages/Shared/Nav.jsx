@@ -86,7 +86,7 @@ const Nav = () => {
         <a>Doctors</a>
       </a>
       <ActiveLink to="/Dashboard/Appointments">
-        <a>Appointment</a>
+        <a>My Appointments</a>
       </ActiveLink>
       {user ? (
         <>
@@ -110,7 +110,7 @@ const Nav = () => {
     </>
   );
   return (
-    <div className="font-VarelaRound z-20    top-0 fixed   flex justify-center w-full ">
+    <div className="font-VarelaRound z-50    top-0 fixed   flex justify-center w-full ">
       <div
         className={`${
           navBar === true
@@ -172,7 +172,9 @@ const Nav = () => {
           </div>
         </div>
         <div className="navbar-end hidden gap-x-4 w-full lg:flex">
-          <ul className="menu menu-horizontal gap-x-8 me-2">{navOptions}</ul>
+          <ul className="menu menu-horizontal gap-x-8 me-2 cursor-pointer">
+            {navOptions}
+          </ul>
         </div>
       </div>
       <div>
@@ -205,30 +207,13 @@ const Nav = () => {
                       <BsFillCaretLeftFill className="text-[#07332F]" />
                     </ActiveLink2>
                   </Link>
-                  <Link to="/About" className="flex items-center gap-x-2">
-                    <a>About</a>{" "}
-                    <ActiveLink2 to="/About">
-                      <BsFillCaretLeftFill className="text-[#07332F]" />
-                    </ActiveLink2>
-                  </Link>
+
                   <Link
                     to="/Dashboard/Appointments"
                     className="flex items-center gap-x-2"
                   >
-                    <a>Appoinment</a>{" "}
+                    <a>My Appoinments</a>{" "}
                     <ActiveLink2 to="/Dashboard/Appointments">
-                      <BsFillCaretLeftFill className="text-[#07332F]" />
-                    </ActiveLink2>
-                  </Link>
-                  <Link to="/Blog" className="flex items-center gap-x-2">
-                    <a>Blog</a>{" "}
-                    <ActiveLink2 to="/Blog">
-                      <BsFillCaretLeftFill className="text-[#07332F]" />
-                    </ActiveLink2>
-                  </Link>
-                  <Link to="/FeedBack" className="flex items-center gap-x-2">
-                    <a>FeedBack</a>{" "}
-                    <ActiveLink2 to="/FeedBack">
                       <BsFillCaretLeftFill className="text-[#07332F]" />
                     </ActiveLink2>
                   </Link>

@@ -24,7 +24,7 @@ const MainLayout = () => {
         className={`${
           loading === true
             ? "scale-100 transform bg-white duration-500 opacity-100"
-            : "scale-100 bg-white  transform duration-500 opacity-0"
+            : "scale-0 bg-white  transform duration-500 opacity-0"
         } z-50 absolute w-full min-h-screen flex justify-center items-center`}
       >
         <Lottie
