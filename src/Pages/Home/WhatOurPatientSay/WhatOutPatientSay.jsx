@@ -26,7 +26,7 @@ const WhatOutPatientSay = () => {
   const navigation = useNavigation();
   return (
     <div className="mb-[130px]  mx-auto">
-      <h1 className="lg:text-3xl text-2xl text-black font-VarelaRound font-bold text-center">
+      <h1 className=" lg:text-3xl text-2xl text-black font-VarelaRound font-bold text-center">
         What Our Patients Says
       </h1>
       <p className="text-center text-sm lg:text-base w-[350px] lg:w-[750px] mx-auto mt-5 mb-12">
@@ -55,12 +55,12 @@ const WhatOutPatientSay = () => {
               delay: 4500,
               disableOnInteraction: false,
             }}
-            className="mySwiper w-11/12 mx-auto"
+            className="mySwiper w-11/12 mx-auto lg:h-[255px] xl:w-9/12"
           >
             {data.map((x, i) => (
               <>
                 <SwiperSlide key={i}>
-                  <div className="lg:w-[458px] h-[300px] lg:h-[250px] w-[340px] shadow-lg border lg:p-0 rounded-2xl border-[#F7A582] mx-auto">
+                  <div className="xl:w-[500px] lg:w-[458px] h-[300px] lg:h-[250px] w-[340px] shadow-lg border lg:p-0 rounded-2xl border-[#F7A582] mx-auto">
                     <div className="flex items-center justify-between me-10">
                       <div className="flex items-center">
                         <img
@@ -92,7 +92,7 @@ const WhatOutPatientSay = () => {
               </>
             ))}
           </Swiper>
-          <div className="flex justify-center gap-x-[300px] lg:gap-x-[900px] -top-[170px] items-center relative z-10 lg:-top-[150px]">
+          <div className="flex xl:justify-between justify-center xl:w-[80%] gap-x-[300px] lg:gap-x-[900px] mx-auto => { second } -top-[170px] items-center relative z-10 lg:-top-[150px]">
             {" "}
             <div className="cursor-pointer" ref={navigationPrevRef}>
               <SlArrowLeftCircle className="lg:text-5xl lg:bg-[#F7A582] bg-white text-4xl text-[#F7A582] rounded-full lg:text-white" />

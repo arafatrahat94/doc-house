@@ -20,30 +20,21 @@ const Login = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
   const onSubmit = (data) => {
     setbuttonLoading(true);
     loginwithpass(data.email, data.password)
       .then(() => {
-        axios
-          .post(`https://doc-house-server-lac.vercel.app/users`, {
-            userName: data.name,
-            userMail: data.email,
-          })
-          .then(function (response) {
-            if (response.data) {
-              setbuttonLoading(false);
+        setbuttonLoading(false);
 
-              Toast.fire({
-                icon: "success",
-                position: "top",
-                background: "#F7A582",
-                title: "Logged In",
-              });
-              // TODO: Navigate change work for private route
-              navigate("/");
-            }
-            // console.log(response);
-          });
+        Toast.fire({
+          icon: "success",
+          position: "top",
+          background: "#F7A582",
+          title: "Logged In",
+        });
+        // TODO: Navigate change work for private route
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         Toast.fire({
@@ -78,7 +69,7 @@ const Login = () => {
                 title: "Logged In",
               });
             }
-            navigate("/");
+            navigate(from, { replace: true });
             // console.log(response);
           });
       })

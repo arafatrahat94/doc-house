@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Cover from "../../SharedComponent/Cover";
 import { Rating } from "@smastrom/react-rating";
 import { GoLocation } from "react-icons/go";
@@ -7,6 +7,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 // import "react-tabs/style/react-tabs.css";
 import { useEffect, useState } from "react";
 import ScrolltoTop from "../../Shared/ScrolltoTop";
+import { Helmet } from "react-helmet-async";
 const SIngleExpertDoctor = () => {
   const data = useLoaderData();
   console.log(data);
@@ -16,6 +17,9 @@ const SIngleExpertDoctor = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Doc view | Doc House</title>
+      </Helmet>
       <ScrolltoTop></ScrolltoTop>
       <Cover coverTitle={"Doctors Profile"} path={"View Profile"}></Cover>
 
@@ -118,7 +122,7 @@ const SIngleExpertDoctor = () => {
       {/* tab section */}
       <div className="lg:w-11/12 mx-2 lg:mx-auto">
         <Tabs>
-          <TabList className="flex justify-center bg-black items-center">
+          <TabList className="flex justify-center  items-center">
             <Tab>Over View</Tab>
             <Tab>Location</Tab>
           </TabList>
@@ -214,9 +218,12 @@ const SIngleExpertDoctor = () => {
                   ))}
                 </div>
 
-                <button className="btn rounded-md mt-4 bg-[#F7A582] text-white">
+                <Link
+                  to={`/Appoinment/${data._id}`}
+                  className="btn rounded-md mt-4 bg-[#F7A582] text-white"
+                >
                   Take Appoinment
-                </button>
+                </Link>
               </div>
             </div>
           </TabPanel>

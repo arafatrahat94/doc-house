@@ -8,7 +8,7 @@ import user3 from "../../../assets/banner/Rectangle 20077.png";
 const Banner = () => {
   return (
     <div className="font-SourceSans3 ">
-      <div className="h-[685px] xl:h-[690px]  lg:h-[560px] relative bg-[#07332F]">
+      <div className="w-full h-[755px] xl:h-[690px]  md:h-[560px] relative bg-[#07332F]">
         <div className="">
           <img
             className="hidden lg:block w-[300px] absolute right-[150px] top-[100px]"
@@ -16,7 +16,7 @@ const Banner = () => {
             alt=""
           />
           <img
-            className="w-[100px] top-[540px] absolute lg:right-[400px] xl:right-[590px] xl:top-[490px] right-64 z-10 lg:top-[330px]"
+            className="w-[100px] top-[600px] absolute lg:right-[400px] xl:right-[590px] xl:top-[490px] right-64 z-10 md:top-[330px]"
             src={dot}
             alt=""
           />
@@ -37,7 +37,7 @@ const Banner = () => {
           />
         </div>
         <div className="pt-20 z-10">
-          <div className="grid lg:grid-cols-2 ">
+          <div className="grid md:grid-cols-2 ">
             <div className="lg:ps-24 mt-16 lg:pt-14 text-white">
               <div
                 className="lg:text-5xl
@@ -57,9 +57,9 @@ const Banner = () => {
                 </button>
               </div>
             </div>
-            <div className="mt ">
+            <div className="mt relative top-72 lg:top-20 xl:top-28">
               <img
-                className="xl:w-[250px] lg:w-[190px] w-[149px] lg:left-[550px] xl:left-[790px] left-10 bottom-[80px] xl:bottom-[230px] lg:bottom-[160px] absolute "
+                className="xl:w-[250px] lg:w-[190px] w-[149px]   left-10 bottom-[80px] xl:bottom-[230px] lg:bottom-[160px] absolute "
                 src={user3}
                 alt=""
               />

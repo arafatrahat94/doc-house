@@ -21,7 +21,7 @@ const DoctorAndteeth = () => {
             quae ab illo inve ntore veritatis et quasi architecto beatae vitae
             dicta sunt explicabo.
           </p>
-          <div className="lg:flex justify-center gap-y-2 grid grid-cols-2 lg:flex-row gap-x-2">
+          <div className="lg:flex lg:justify-start justify-center gap-y-2 grid grid-cols-2 lg:flex-row gap-x-2">
             <button className="btn bg-[#F7A582] text-[#3B3A3A]  rounded-lg h-[60px] normal-case font-VarelaRound font-bold btn-active ">
               Cavity Protection
             </button>

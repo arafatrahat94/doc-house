@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import icon from "../../assets/icons/warning.png";
 import logo from "../../assets/react.png";
+
 import ActiveLink from "./ActiveLink";
 import {
   AiOutlineLogin,
@@ -61,13 +62,8 @@ const Nav = () => {
   // Scroll to add effect on Navbar::>
   const [navBar, setNavbar] = useState(false);
   const changeBackground = () => {
-    console.log(window.scrollY);
-    if (window.scrollY >= 66 && window.screen.width <= 1024) {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
-    if (window.scrollY >= 310 && window.screen.width > 1024) {
+    // console.log(window.scrollY);
+    if (window.scrollY >= 66) {
       setNavbar(true);
     } else {
       setNavbar(false);
@@ -86,10 +82,10 @@ const Nav = () => {
       <ActiveLink to="/" className="">
         <a>Home</a>
       </ActiveLink>
-      <ActiveLink to="/About">
-        <a>About</a>
-      </ActiveLink>
-      <ActiveLink to="/Appoinment">
+      <a href="#doctors">
+        <a>Doctors</a>
+      </a>
+      <ActiveLink to="/Dashboard/Appointments">
         <a>Appointment</a>
       </ActiveLink>
       {user ? (
@@ -215,9 +211,12 @@ const Nav = () => {
                       <BsFillCaretLeftFill className="text-[#07332F]" />
                     </ActiveLink2>
                   </Link>
-                  <Link to="/Appoinment" className="flex items-center gap-x-2">
+                  <Link
+                    to="/Dashboard/Appointments"
+                    className="flex items-center gap-x-2"
+                  >
                     <a>Appoinment</a>{" "}
-                    <ActiveLink2 to="/Appoinment">
+                    <ActiveLink2 to="/Dashboard/Appointments">
                       <BsFillCaretLeftFill className="text-[#07332F]" />
                     </ActiveLink2>
                   </Link>
@@ -239,12 +238,15 @@ const Nav = () => {
                   {user ? (
                     <>
                       {" "}
-                      <button className=" bg-gradient-to-r from-[#07332F]  to-gray-900 py-3 rounded-lg shadow-md text-white  flex items-center justify-center btn-wide">
+                      <Link
+                        to="/DashBoard/DashBoards"
+                        className=" bg-gradient-to-r from-[#07332F]  to-gray-900 py-3 rounded-lg shadow-md text-white  flex items-center justify-center btn-wide"
+                      >
                         <AiOutlineUser />
                         <h1 className="relative ms-2 bottom-[-2px]">
                           {user.userName?.slice(0, 19)}
                         </h1>
-                      </button>
+                      </Link>
                       <button
                         onClick={handleLogOut}
                         className=" bg-gradient-to-r from-[#07332F]  to-gray-900 py-3 rounded-2xl shadow-md text-white  flex items-center justify-center btn-wide"

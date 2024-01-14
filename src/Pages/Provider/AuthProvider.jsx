@@ -8,9 +8,8 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
-
+import app from "../Firebase/Firebase.config";
 import axios from "axios";
-import app from "../../Firebase/Firebase.config";
 const auth = getAuth(app);
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
@@ -24,6 +23,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, pass);
   };
   const loginwithpass = (email, pass) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, pass);
   };
   const googleLogin = () => {
@@ -36,6 +36,7 @@ const AuthProvider = ({ children }) => {
   // onauthstateChange
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (currentUser) => {
+      setLoading(false);
       setUser(currentUser);
       if (currentUser && currentUser?.email) {
         const loggedUser = {

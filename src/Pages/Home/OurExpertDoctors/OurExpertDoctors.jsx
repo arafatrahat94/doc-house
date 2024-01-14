@@ -25,7 +25,7 @@ const OurExpertDoctors = () => {
     1000: { slidesPerView: 1 },
     300: { slidesPerView: 1 },
   };
-  const ItemsPerPage = 6;
+  const [ItemsPerPage, setItemsPerPage] = useState(6);
   const totalItemsPage = Math.ceil(doctors.length / ItemsPerPage);
   const pageNumber = [...Array(totalItemsPage).keys()];
   // console.log(pageNumber);
@@ -44,8 +44,13 @@ const OurExpertDoctors = () => {
   const handleView = (id) => {
     console.log(id);
   };
+  useEffect(() => {
+    if (window.screen.width > 1024) {
+      setItemsPerPage(8);
+    }
+  }, []);
   return (
-    <div>
+    <div id="doctors">
       <div>
         <h1 className="text-3xl font-VarelaRound font-bold text-center">
           Our Expert Doctors
@@ -77,13 +82,13 @@ const OurExpertDoctors = () => {
               <>
                 <SwiperSlide className=" w-full custScreen:py-4 rounded-2xl">
                   {/* {window.scrollTo({ top: 2650, left: 0, behavior: "smooth" })} */}
-                  <div className="grid lg:grid-cols-3  gap-y-3">
+                  <div className="grid lg:grid-cols-3 xl:grid-cols-4  gap-y-3">
                     {doctors
                       .slice(index * ItemsPerPage, (index + 1) * ItemsPerPage)
                       .map((x, i) => (
                         <>
                           <div key={i}>
-                            <div className="card mx-auto w-[300px] h-[525px] custScreen:h-[520px] lg:h-[525px] bg-base-100 shadow-xl">
+                            <div className="card mx-auto w-[300px] h-[575px] custScreen:h-[575px] lg:h-[575px] bg-base-100 shadow-xl">
                               <div className="w-[300px] h-[200px] p-3">
                                 <img
                                   src={x.image_url}
@@ -92,7 +97,7 @@ const OurExpertDoctors = () => {
                                 />
                               </div>
                               <div className="mt-6  mx-3">
-                                <h2 className=" font-VarelaRound text-xl text-left">
+                                <h2 className=" font-VarelaRound text-xl text-[#07332F] font-bold  text-left">
                                   {x.name}
                                 </h2>
                                 <p className="text-gray-500 font-SourceSans font-medium">
@@ -122,13 +127,23 @@ const OurExpertDoctors = () => {
                                     {x.price_bdt}
                                   </div>
                                 </div>
-                                <div className="card-actions ">
-                                  <Link
-                                    to={`/ViewProfile/${x._id}`}
-                                    className="btn w-full border-[#F7A582] rounded-md bg-white text-[#F7A582] normal-case font-VarelaRound"
-                                  >
-                                    View Profile
-                                  </Link>
+                                <div>
+                                  <div className="card-actions ">
+                                    <Link
+                                      to={`/ViewProfile/${x._id}`}
+                                      className="btn w-full border-[#F7A582] rounded-md bg-white rounded-t-xl text-[#F7A582] normal-case font-VarelaRound"
+                                    >
+                                      View Profile
+                                    </Link>
+                                  </div>
+                                  <div className="card-actions mt-1">
+                                    <Link
+                                      to={`/Appoinment/${x._id}`}
+                                      className="btn w-full border-[#F7A582] bg-[#07332F] rounded-b-xl rounded-md  text-[#F7A582] normal-case font-VarelaRound"
+                                    >
+                                      Book Appointment
+                                    </Link>
+                                  </div>
                                 </div>
                               </div>
                             </div>
