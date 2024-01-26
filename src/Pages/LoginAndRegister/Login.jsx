@@ -116,7 +116,7 @@ const Login = () => {
       {/* scroll to top buttno */}
       <ScrolltoTop></ScrolltoTop>
       <div className="flex w-full justify-center  lg:min-h-screen items-center">
-        <div className="bg-black w-full   p-0 gap-0 grid lg:grid-cols-2">
+        <div className="bg-black w-full   p-0 gap-0 lg:grid lg:grid-cols-2">
           <div className="min-h-screen hidden bg-[#07332F]  xl:rounded-md w-full lg:flex items-center">
             <div className="w-full lg:flex justify-center  mb-10 hidden ">
               <img className="lg:hidden" src={animationsm} alt="" />
@@ -128,7 +128,7 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="flex flex-shrink-0 w-full items-center  bg-base-100">
+          <div className="flex flex-shrink-0 w-full items-center  bg-base-100 justify-center">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="lg:w-[420px] mx-[10px] p-[30px] lg:mx-auto border-none"

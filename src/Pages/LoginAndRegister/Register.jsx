@@ -125,7 +125,7 @@ const Register = () => {
             </div>
           </div>
 
-          <div className="flex flex-shrink-0 w-full   bg-base-100">
+          <div className="flex flex-shrink-0 w-full justify-center  bg-base-100">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="lg:w-[420px] mx-[10px] p-[30px] lg:mx-auto border-none"

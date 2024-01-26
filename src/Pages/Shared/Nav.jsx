@@ -76,7 +76,7 @@ const Nav = () => {
     // adding the event when scroll change background
     window.addEventListener("scroll", changeBackground);
   });
-
+  const [doctor, setDoctor] = useState(false);
   const navOptions = (
     <>
       <ActiveLink to="/" className="">
@@ -200,7 +200,14 @@ const Nav = () => {
               </div>
 
               <div className="flex flex-col justify-between h-[87vh] ">
-                <div className="flex font-VarelaRound font-bold ms-2 flex-col bg-gradient-to-r from-[#07332F]  to-gray-900 bg-clip-text text-transparent  ps-2 gap-y-4 mt-4">
+                <div
+                  onClick={() => {
+                    setTimeout(() => {
+                      document.getElementById("my-drawer").click();
+                    }, 1000);
+                  }}
+                  className="flex font-VarelaRound font-bold ms-2 flex-col bg-gradient-to-r from-[#07332F]  to-gray-900 bg-clip-text text-transparent  ps-2 gap-y-4 mt-4"
+                >
                   <Link to="/" className="flex items-center gap-x-2">
                     <a>Home</a>{" "}
                     <ActiveLink2 to="/">
@@ -208,6 +215,9 @@ const Nav = () => {
                     </ActiveLink2>
                   </Link>
 
+                  <a href="#doctors" className="flex items-center gap-x-2">
+                    <a>Doctors</a>{" "}
+                  </a>
                   <Link
                     to="/Dashboard/Appointments"
                     className="flex items-center gap-x-2"
