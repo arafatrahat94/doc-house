@@ -15,7 +15,7 @@ export default {
 
       xl: "1280px",
       // => @media (min-width: 1280px) { ... }
-
+      xxs: "1440px",
       "2xl": "1536px",
     },
     extend: {

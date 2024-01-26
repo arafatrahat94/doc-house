@@ -117,7 +117,7 @@ const Login = () => {
       <ScrolltoTop></ScrolltoTop>
       <div className="flex w-full justify-center  lg:min-h-screen items-center">
         <div className="bg-black w-full   p-0 gap-0 grid lg:grid-cols-2">
-          <div className="min-h-screen bg-[#07332F]  xl:rounded-md w-full flex items-center">
+          <div className="min-h-screen hidden bg-[#07332F]  xl:rounded-md w-full lg:flex items-center">
             <div className="w-full lg:flex justify-center  mb-10 hidden ">
               <img className="lg:hidden" src={animationsm} alt="" />
               <img

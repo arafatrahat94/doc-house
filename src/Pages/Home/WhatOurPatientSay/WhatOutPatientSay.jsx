@@ -54,7 +54,7 @@ const WhatOutPatientSay = () => {
               delay: 4500,
               disableOnInteraction: false,
             }}
-            className="mySwiper w-11/12 mx-auto lg:h-[255px] xl:w-9/12"
+            className="mySwiper w-11/12 mx-auto lg:h-[255px] xl:w-[80%] xxs:w-[72%]"
           >
             {data.map((x, i) => (
               <>

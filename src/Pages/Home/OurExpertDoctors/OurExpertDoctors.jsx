@@ -48,6 +48,7 @@ const OurExpertDoctors = () => {
     if (window.screen.width > 1024) {
       setItemsPerPage(8);
     }
+    console.log(window.scrollY);
   }, []);
   return (
     <div id="doctors">
@@ -76,11 +77,11 @@ const OurExpertDoctors = () => {
             }}
             breakpoints={breakpoint}
             modules={[Navigation]}
-            className="mySwiper h-full w-11/12 mx-auto"
+            className="mySwiper h-full mx-auto w-[92%] xxs:w-[87%] xl:w-[99%] "
           >
             {pageNumber.map((index) => (
               <>
-                <SwiperSlide className=" w-full custScreen:py-4 rounded-2xl">
+                <SwiperSlide className=" w-full  custScreen:py-4 rounded-2xl">
                   {/* {window.scrollTo({ top: 2650, left: 0, behavior: "smooth" })} */}
                   <div className="grid lg:grid-cols-3 xl:grid-cols-4  gap-y-3">
                     {doctors
@@ -131,7 +132,7 @@ const OurExpertDoctors = () => {
                                   <div className="card-actions ">
                                     <Link
                                       to={`/ViewProfile/${x._id}`}
-                                      className="btn w-full border-[#F7A582] rounded-md bg-white rounded-t-xl text-[#F7A582] normal-case font-VarelaRound"
+                                      className="btn w-full border-[#F7A582] rounded-md bg-white rounded-t-xl text-[#F7A582] normal-case hover:bg-white font-VarelaRound"
                                     >
                                       View Profile
                                     </Link>
@@ -139,7 +140,7 @@ const OurExpertDoctors = () => {
                                   <div className="card-actions mt-1">
                                     <Link
                                       to={`/Appoinment/${x._id}`}
-                                      className="btn w-full border-[#F7A582] bg-[#07332F] rounded-b-xl rounded-md  text-[#F7A582] normal-case font-VarelaRound"
+                                      className="btn w-full border-[#F7A582] bg-[#07332F] rounded-b-xl rounded-md  text-[#F7A582] hover:bg-white normal-case font-VarelaRound"
                                     >
                                       Book Appointment
                                     </Link>
@@ -158,7 +159,14 @@ const OurExpertDoctors = () => {
           <div className="flex ms-8 mt-10  items-center  z-10 ">
             {" "}
             <div
-              onClick={decrase}
+              onClick={() => {
+                decrase();
+                if (window.screen.width <= 425) {
+                  window.scrollTo({ top: 3500 });
+                } else {
+                  window.scrollTo({ top: 2500 });
+                }
+              }}
               className="cursor-pointer"
               ref={navigationPrevRef}
             >
@@ -169,7 +177,14 @@ const OurExpertDoctors = () => {
             </h1>
             <div
               className="cursor-pointer"
-              onClick={increasenumber}
+              onClick={() => {
+                increasenumber();
+                if (window.screen.width <= 425) {
+                  window.scrollTo({ top: 3500 });
+                } else {
+                  window.scrollTo({ top: 2500 });
+                }
+              }}
               ref={navigationNextRef}
             >
               <SlArrowRightCircle className="lg:text-6xl text-4xl bg-[#F7A582] rounded-full text-white" />
